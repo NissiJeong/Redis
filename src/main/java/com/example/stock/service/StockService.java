@@ -16,6 +16,8 @@ public class StockService {
 
     //@Transactional // 우리가 만든 클래스를 매핑할 클래스를 새로 만들어서 실행하게 됨. 트랜잭션이 열리고 닫히기 전(업데이트 되기전) 다른 스레드가 해당 메서드를 호출하게 되면 동시성 이슈가 해결되지 않음
     // synchronized 이용할때는 @Transactional 어노테이션을 사용하면 안됨.
+    // 서버가 1대이면 문제가 되지 않겠지만 서버가 여려대인 경우 문제가 발생할 수 있음.
+    // 현업에서는 거의 사용되지 않는 방법.
     public synchronized void decrease(Long id, Long quantity) {
         // Stock 조회
         // 재고 감소
